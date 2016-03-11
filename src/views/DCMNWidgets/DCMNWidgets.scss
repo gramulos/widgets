@@ -1,0 +1,80 @@
+$gray: #e5e5e5;
+$grayBorder: #cccccc;
+$grayHover: #D2D2D2;
+$lightGrayBorder: #DCDCDC;
+$green: #2ecd71;
+$darkGray: #666666;
+$pink: #f15b64;
+$orange: #f39c11;
+$white: #ffffff;
+$fontDarkGray: #333333;
+$black: #000000;
+$lightBlue: #2aa7d3;
+
+:global {
+  .dashboardContent {
+    height: 100%;
+    width: 100%;
+    padding: 0 30px;
+    float: left;
+    position: relative;
+  }
+
+  .topNavigation {
+    height: 60px;
+    margin: 4px 0;
+    position: relative;
+  }
+
+  .topNavItem {
+    color: $darkGray;
+    float: left;
+    line-height: 60px;
+    margin: 0 20px;
+  }
+
+  .topNavItem span {
+    float: left;
+  }
+
+  .topNavItem .progress {
+    margin: 26px 0 0 6px;
+    width: calc(100% - 110px);
+    float: left;
+  }
+
+  .topNavItem i {
+    float: left;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 60px;
+    vertical-align: middle;
+    padding-right: 7px;
+  }
+
+  .topNavItem:nth-child(3) i {
+    font-size: 12px;
+    line-height: 57px;
+  }
+
+  .topNavigation img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .dashboardComponent {
+    width: 100%;
+    float: left;
+  }
+
+  .dashboardComponentHeader h1 {
+    font-size: 30px;
+    font-family: Arial;
+    font-weight: bold;
+  }
+
+  .dashboardComponentTools {
+    position: relative;
+    float: left;
+  }
+}

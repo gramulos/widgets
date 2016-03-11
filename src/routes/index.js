@@ -6,13 +6,13 @@ import { Route, IndexRoute, Redirect } from 'react-router'
 // they were from the root of the ~/src directory. This makes it
 // very easy to navigate to files regardless of how deeply nested
 // your current file is.
-import WidgetLayout from '../layouts/WidgetLayout/WidgetLayout'
-import WidgetView from '../views/WidgetView/WidgetView'
+import DCMNLayout from '../layouts/DCMNLayout/DCMNLayout'
+import DCMNWidgets from '../views/DCMNWidgets/DCMNWidgets'
 import NotFoundView from 'views/NotFoundView/NotFoundView'
 
 export default (
-  <Route path='/' component={WidgetLayout}>
-    <IndexRoute component={WidgetView} />
+  <Route path='/' component={DCMNLayout}>
+    <IndexRoute component={DCMNWidgets} />
     <Route path='/404' component={NotFoundView} />
     <Redirect from='*' to='/404' />
   </Route>
