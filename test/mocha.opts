@@ -1,0 +1,4 @@
+--require test/test-helper
+--require test/babelhook
+--require test/css-null-compiler
+--require test/images-null-compiler
