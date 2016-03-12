@@ -47,51 +47,14 @@ html, body {
     background-color: $gray;
     border-right: 1px solid $grayBorder;
     color: $fontDarkGray;
-    position: relative;
+    position: fixed;
+    z-index: 10;
     transition: width 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
   }
 
   .closedNavigation {
     width: $navBarSmall;
     transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
-  }
-
-  .closedNavigation ul {
-    visibility: hidden;
-  }
-
-  .closedNavigation ul li {
-    margin-left: -($navBarFull);
-    transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
-  }
-
-  .navigationContent {
-    list-style: none;
-    padding-left: 0;
-    animation-name: getIn;
-    animation-duration: 450ms;
-    transition: margin-left 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
-  }
-
-  @keyframes getIn {
-    0%   {margin-left: -($navBarFull);}
-    100% {margin-left: 0;}
-  }
-
-  .navigationContent li {
-    width: 159px;
-    padding: 10px 0;
-    cursor: pointer;
-  }
-
-  .navigationContent li:hover {
-    background-color: $grayHover;
-  }
-
-  .navigationContent li i {
-    vertical-align: middle;
-    padding-right: 15px;
-    padding-left: 18px;
   }
 
   .loggedUser {
@@ -114,7 +77,7 @@ html, body {
     transition: width 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
     height: 100%;
     float: left;
-    overflow-y: auto;
+
   }
 
   .wideView {
@@ -238,6 +201,20 @@ html, body {
     vertical-align: middle;
   }
 
+  .modal-dialog {
+    position: absolute;
+    top: 50% !important;
+    left: 50% !important;
+    margin: -30px auto !important;
+    transform: translate(-50%,-50%) !important;
+  }
+
+  .modal-content {
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    border: 0;
+  }
+
   .squareWidget {
     position: relative;
     background-color: $white;
@@ -303,10 +280,412 @@ html, body {
     font-size: 18px;
   }
 
-  @media only screen and (max-device-width: 768px) {
+  /* SMARTPHONES PORTRAIT */
+  @media only screen and (min-width: 320px) {
     .leftNavigation {
+      height: $navBarSmall;
       width: 100%;
       border-bottom: 1px solid $grayBorder;
+      border-right: none;
+    }
+
+    .leftNavigation ul {
+      margin-top: -300px;
+      margin-left: 0;
+      width: 100%;
+    }
+
+    .closedNavigation {
+      height: 300px;
+      transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+    }
+
+    .closedNavigation ul {
+      margin-top: 0;
+      margin-left: 0;
+      width: 100%;
+      transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+    }
+
+    .dashboardContainer {
+      width: 100%;
+      transition: width 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+      float: left;
+      margin-top: 65px;
+    }
+
+    .wideView {
+      width: 100%;
+      transition: width 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+    }
+
+    .loggedUser {
+      right: 0;
+      top: 0;
+    }
+
+    .navigationContent {
+      list-style: none;
+      padding-left: 0;
+      animation-name: getIn;
+      animation-duration: 450ms;
+      transition: margin-left 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+    }
+
+    .navigationContent li {
+      width: 100%;
+      padding: 10px 0;
+      cursor: pointer;
+    }
+
+    .navigationContent li:hover {
+      background-color: $grayHover;
+    }
+
+    .navigationContent li i {
+      vertical-align: middle;
+      padding-right: 15px;
+      padding-left: 18px;
+    }
+
+    .topNavItem {
+      line-height: 30px;
+      left: 0;
+      transform: none;
+    }
+
+    .topNavItem i, .topNavItem span {
+      line-height: 30px;
+    }
+
+    .topNavItem .progress {
+      margin: 11px 0 0 4px;
+    }
+
+    .topNavItem:nth-child(3) {
+      float: left !important;
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .topNavItem:nth-child(3) i, .topNavItem:nth-child(3) span {
+      line-height: 60px;
+    }
+
+    .dashboardComponentTools {
+      height: auto;
+      margin-top: -65px;
+    }
+
+    .inlineInput {
+      position: relative;
+      float: left;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .dropdownList select {
+      margin-left: 1px;
+    }
+
+    .dashboardContent {
+      padding: 0 15px !important;
+    }
+
+    .topNavItemContainer {
+      width: calc(100% - 70px);
+      float: left;
+      margin-left: 10px;
+    }
+  }
+
+  @media only screen and (min-width: 540px) {
+    .topNavItem {
+      line-height: 30px;
+      left: 0;
+      transform: none;
+      margin: 0 10px;
+    }
+
+    .topNavItem i, .topNavItem span {
+      line-height: 30px;
+    }
+
+    .topNavItem .progress {
+      margin: 10px 0 0 4px;
+    }
+
+    .topNavItem:nth-child(3) {
+      float: right !important;
+      position: relative;
+      left: 0;
+      transform: none;
+    }
+
+    .topNavItem:nth-child(3) i, .topNavItem:nth-child(3) span {
+      line-height: 60px;
+    }
+
+    .dropdownList select {
+      padding: 7px 28px 7px 9px;
+    }
+
+    .topNavItemContainer {
+      float: left;
+      width: 200px;
+    }
+  }
+
+  /* SMARTPHONES LANDSCAPE */
+  @media only screen and (min-width: 300px) and (min-width: 480px) {
+    .leftNavigation {
+      height: $navBarSmall;
+      width: 100%;
+      border-bottom: 1px solid $grayBorder;
+      border-right: none;
+    }
+
+    .leftNavigation ul {
+      margin-top: -300px;
+      margin-left: 0;
+      width: 100%;
+    }
+
+    .closedNavigation {
+      height: 300px;
+      transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+    }
+
+    .closedNavigation ul {
+      margin-top: 0;
+      margin-left: 0;
+      width: 100%;
+      transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+    }
+
+    .dashboardContainer {
+      margin-top: 65px;
+      width: 100%;
+      transition: width 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+      float: left;
+
+    }
+
+    .wideView {
+      width: 100%;
+      transition: width 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+    }
+
+    .loggedUser {
+      right: 0;
+      top: 0;
+    }
+
+    .navigationContent {
+      list-style: none;
+      padding-left: 0;
+      animation-name: getIn;
+      animation-duration: 450ms;
+      transition: margin-left 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+    }
+
+    .navigationContent li {
+      width: 100%;
+      padding: 10px 0;
+      cursor: pointer;
+    }
+
+    .navigationContent li:hover {
+      background-color: $grayHover;
+    }
+
+    .navigationContent li i {
+      vertical-align: middle;
+      padding-right: 15px;
+      padding-left: 18px;
+    }
+  }
+
+  /* TABLETS PORTRAIT */
+  @media only screen and (min-width: 730px) {
+    .leftNavigation {
+      width: $navBarSmall;
+      height: 100%;
+      float: left;
+      background-color: $gray;
+      border-right: 1px solid $grayBorder;
+      color: $fontDarkGray;
+      position: fixed;;
+      z-index: 10;
+      transition: width 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+    }
+
+    .leftNavigation ul {
+      margin-top: 0;
+    }
+
+    .leftNavigation ul li {
+      margin-top: 0;
+      margin-left: -#{$navBarFull};
+      width: 100%;
+    }
+
+    .loggedUser {
+      bottom: 0;
+      left: 0;
+      top: auto;
+      right: auto;
+    }
+
+    .closedNavigation {
+      width: $navBarFull;
+      height: 100%;
+      transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+    }
+
+    .closedNavigation ul {
+      visibility: visible;
+    }
+
+    .closedNavigation ul li {
+      margin-left: 0;
+      transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+    }
+
+    .dashboardContainer {
+      width: calc(100% - #{$navBarSmall});
+      margin-left: $navBarSmall;
+      transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+      height: 100%;
+      margin-top: 0;
+      float: left;
+    }
+
+    .wideView {
+      width: calc(100% - #{$navBarFull});
+      margin-left: $navBarFull;
+      transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+    }
+
+    .navigationContent {
+      width: 159px;
+      list-style: none;
+      padding-left: 0;
+      transition: margin-left 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+    }
+
+    .navigationContent li {
+      width: 100%;
+      padding: 10px 0;
+      cursor: pointer;
+    }
+
+    .navigationContent li:hover {
+      background-color: $grayHover;
+    }
+
+    .navigationContent li i {
+      vertical-align: middle;
+      padding-right: 15px;
+      padding-left: 18px;
+    }
+
+    .inlineInput {
+      float: right;
+      left: 0;
+      transform: none;
+    }
+  }
+
+  @media only screen and (min-width: 768px) {
+    .dashboardComponentTools {
+      margin-top: 0;
+    }
+
+    .topNavItem {
+      line-height: 30px;
+      left: 0;
+      transform: none;
+      margin: 0 10px;
+    }
+
+    .topNavItem i, .topNavItem span {
+      line-height: 30px;
+    }
+
+    .topNavItem .progress {
+      margin: 10px 0 0 4px;
+    }
+
+    .topNavItem:nth-child(3) {
+      float: right !important;
+      position: relative;
+      left: 0;
+      transform: none;
+    }
+
+    .topNavItem:nth-child(3) i, .topNavItem:nth-child(3) span {
+      line-height: 60px;
+    }
+
+    .dropdownList select {
+      padding: 7px 28px 7px 9px;
+    }
+
+    .topNavItemContainer {
+      float: left;
+      width: 200px;
+    }
+  }
+
+  @media only screen and (min-width: 843px) {
+    .topNavItemContainer {
+      width: 420px;
+    }
+
+    .topNavItemContainer {
+      .topNavItem {
+        line-height: 60px;
+        height: 60px;
+      }
+
+      .topNavItem i, .topNavItem span {
+        line-height: 60px;
+      }
+
+      .progress {
+        margin: 26px 0 0 4px;
+      }
+    }
+
+    .dashboardComponentTools {
+      margin-top: 0;
+    }
+  }
+
+  @media only screen and (min-width: 1024px) {
+    .topNavItemContainer {
+      width: 420px;
+    }
+
+    .topNavItemContainer {
+      .topNavItem {
+        line-height: 60px;
+        height: 60px;
+      }
+
+      .topNavItem i, .topNavItem span {
+        line-height: 60px;
+      }
+
+      .progress {
+        margin: 26px 0 0 4px;
+      }
+    }
+
+    .dashboardComponentTools {
+      margin-top: 0;
     }
   }
 }
