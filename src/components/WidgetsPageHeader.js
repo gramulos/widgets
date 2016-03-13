@@ -6,7 +6,7 @@ const WidgetsPageHeader = () => {
       <div className='row noMargin dashboardComponentHeader'>
         <div className='pageTitle'>OVERALL</div>
         <div className='dashboardComponentTools pull-right'>
-          <div className='gBtn btnGreen pull-right' style={{marginRight: '0 !important'}} data-toggle='modal' data-target='#myModal'>
+          <div className='gBtn btnGreen pull-right' style={{marginRight: '0 !important', marginLeft: '0 !important'}} data-toggle='modal' data-target='#myModal'>
             <i className='material-icons'>add</i>
             Add widget
           </div>
