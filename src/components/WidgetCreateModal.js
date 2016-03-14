@@ -9,7 +9,7 @@ const WidgetCreateModal = ({fields, createWidget}) => {
       <div className='modal-dialog'>
         <div className='modal-content'>
           <div className='modal-header'>
-            <button type='button' className='close' data-dismiss='modal'>&times;</button>
+            <button type='button' className='close' id='modalClose' data-dismiss='modal'>&times;</button>
             <h4 className='modal-title'>Create new widget</h4>
           </div>
           <div className='modal-body'>
