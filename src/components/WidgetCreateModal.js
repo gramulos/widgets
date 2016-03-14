@@ -1,5 +1,6 @@
 import React from 'react'
 import TextWidgetItem from '../models/text-widget'
+import HideModal from '../models/hide-modal'
 
 const WidgetCreateModal = ({fields, createWidget}) => {
   const { widgetText } = fields
@@ -15,6 +16,7 @@ const WidgetCreateModal = ({fields, createWidget}) => {
             <div className='form-group' id='widgetText'>
               <label className='control-label'>What's on your mind?</label>
               <input type='text' className='form-control'
+                     id='widgetInput'
                      aria-describedby='inputSuccess2Status'
                      {...widgetText}
                      onBlur={() => {
@@ -30,13 +32,18 @@ const WidgetCreateModal = ({fields, createWidget}) => {
             </div>
           </div>
           <div className='modal-footer'>
-            <div className='gBtn btnGreen noMargin pull-right' data-dismiss='modal' onClick={() => {
-              const newWidget = TextWidgetItem.create({ text: widgetText.value })
-              createWidget(newWidget)
-              widgetText.onChange('')
-              const myModal = document.getElementById('myModal')
-              if (myModal.className.indexOf('has-error') > 0) {
-                myModal.className = 'modal fade'
+            <div className='gBtn btnGreen noMargin pull-right' onClick={() => {
+              if (!widgetText.value) {
+                const input = document.getElementById('widgetInput')
+                input.focus()
+                input.blur()
+              } else {
+                const newWidget = TextWidgetItem.create({ text: widgetText.value })
+                createWidget(newWidget)
+                widgetText.onChange('')
+                const inputElement = document.getElementById('widgetText')
+                inputElement.className = 'form-group'
+                HideModal()
               }
             }}>Add</div>
           </div>
